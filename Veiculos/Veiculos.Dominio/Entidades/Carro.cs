@@ -1,11 +1,10 @@
-﻿using System;
-using Veiculos.Dominio.Enums;
+﻿using Veiculos.Dominio.Enums;
 
 namespace Veiculos.Dominio.Entidades
 {
     public class Carro : Veiculo
     {
-        public override TipoVeiculoEnum TipoVeiculo => throw new NotImplementedException();
+        public override TipoVeiculoEnum TipoVeiculo => TipoVeiculoEnum.Carro;
 
         public Carro(string nome, int ano)
         {
