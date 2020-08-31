@@ -1,7 +1,6 @@
 ﻿CREATE TABLE [dbo].[TipoVeiculo]
 (
-	[Id] UNIQUEIDENTIFIER NOT NULL,
-	[Tipo] INT NOT NULL,
+	[Id] INT NOT NULL,
 	[Descricao] VARCHAR(50) NOT NULL,
 	CONSTRAINT [PK_TipoVeiculo] PRIMARY KEY CLUSTERED ([Id] ASC)
 )

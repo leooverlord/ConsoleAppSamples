@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Veiculos.Aplicacao.Interfaces;
+using Veiculos.Aplicacao.Interfaces.Servicos;
 using Veiculos.Dominio.Entidades;
-using Veiculos.Infra.Interfaces;
+using Veiculos.Infra.Interfaces.Repositorios;
 
 namespace Veiculos.Aplicacao.Servicos
 {

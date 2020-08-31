@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using Veiculos.Dominio.Entidades;
 
-namespace Veiculos.Infra.Interfaces
+namespace Veiculos.Infra.Interfaces.Repositorios
 {
     public interface ICarroRepositorio
     {

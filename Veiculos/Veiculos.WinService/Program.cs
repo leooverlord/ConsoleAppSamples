@@ -1,7 +1,8 @@
 ﻿using Autofac;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Threading.Tasks;
-using Veiculos.Aplicacao.Interfaces;
+using Veiculos.Aplicacao.Interfaces.Servicos;
 using Veiculos.Dominio.Entidades;
 using Veiculos.WinService.IocConfig;
 
@@ -11,7 +12,11 @@ namespace Veiculos.WinService
     {
         static async Task Main(string[] args)
         {
-            var container = IocContainer.GetContainer();
+            var configuration = new ConfigurationBuilder()
+           .AddJsonFile("appsettings.json")
+           .Build();
+
+            var container = new IocContainer(configuration).GetContainer();
 
             var servico = container.Resolve<ICarroServico>();
 

@@ -3,15 +3,15 @@ using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Veiculos.Aplicacao.Interfaces;
+using Veiculos.Aplicacao.Interfaces.Servicos;
 using Veiculos.Aplicacao.Servicos;
 using Veiculos.Dominio.Entidades;
-using Veiculos.Infra.Interfaces;
+using Veiculos.Infra.Interfaces.Repositorios;
 
 namespace Veiculos.Testes.Unitarios.Aplicacao
 {
     [TestFixture]
-    public class CarraServicoTeste
+    public class CarroServicoTeste
     {
         ICarroServico servico;
         Mock<ICarroRepositorio> repositorio;
@@ -26,7 +26,7 @@ namespace Veiculos.Testes.Unitarios.Aplicacao
 
             repositorio = new Mock<ICarroRepositorio>();
             repositorio.Setup(x => x.ObterTodos()).Returns(Task.FromResult(carros));
-            
+
             servico = new CarroServico(repositorio.Object);
         }
 
