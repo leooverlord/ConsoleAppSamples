@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Veiculos.Testes.Unitarios.A
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Veiculos.Infra.Sql", "Veiculos.Infra.Sql\Veiculos.Infra.Sql.sqlproj", "{3D4AA25B-C591-4923-B5B2-D44A2CDD7178}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Veiculos.Infra.Data", "Veiculos.Infra.Data\Veiculos.Infra.Data.csproj", "{A9B1C3B9-4F3B-4343-B58B-D4475B0B08FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{3D4AA25B-C591-4923-B5B2-D44A2CDD7178}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D4AA25B-C591-4923-B5B2-D44A2CDD7178}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3D4AA25B-C591-4923-B5B2-D44A2CDD7178}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{A9B1C3B9-4F3B-4343-B58B-D4475B0B08FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9B1C3B9-4F3B-4343-B58B-D4475B0B08FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9B1C3B9-4F3B-4343-B58B-D4475B0B08FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9B1C3B9-4F3B-4343-B58B-D4475B0B08FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

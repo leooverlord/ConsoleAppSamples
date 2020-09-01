@@ -6,6 +6,7 @@ namespace Veiculos.Dominio.Entidades
     {
         public override TipoVeiculoEnum TipoVeiculo => TipoVeiculoEnum.Carro;
 
+        protected Carro() { }
         public Carro(string nome, int ano)
         {
             Nome = nome;

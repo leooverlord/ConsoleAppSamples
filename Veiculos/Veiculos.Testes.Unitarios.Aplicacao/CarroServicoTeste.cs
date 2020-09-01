@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Veiculos.Aplicacao.Interfaces.Servicos;
 using Veiculos.Aplicacao.Servicos;
 using Veiculos.Dominio.Entidades;
+using Veiculos.Infra.Interfaces;
 using Veiculos.Infra.Interfaces.Repositorios;
 
 namespace Veiculos.Testes.Unitarios.Aplicacao
@@ -14,9 +15,9 @@ namespace Veiculos.Testes.Unitarios.Aplicacao
     public class CarroServicoTeste
     {
         ICarroServico servico;
-        Mock<ICarroRepositorio> repositorio;
         IFixture fixture;
         IEnumerable<Carro> carros;
+        Mock<IUnitOfWork> unitOfWork;
 
         [OneTimeSetUp]
         public void Setup()
@@ -24,10 +25,11 @@ namespace Veiculos.Testes.Unitarios.Aplicacao
             fixture = new Fixture { RepeatCount = 20 };
             carros = fixture.CreateMany<Carro>();
 
-            repositorio = new Mock<ICarroRepositorio>();
-            repositorio.Setup(x => x.ObterTodos()).Returns(Task.FromResult(carros));
+            unitOfWork = new Mock<IUnitOfWork>();
+            unitOfWork.Setup(x => x.CarroRepositorio).Returns(new Mock<ICarroRepositorio>().Object);
+            unitOfWork.Setup(x => x.CarroRepositorio.ObterTodos()).Returns(Task.FromResult(carros));
 
-            servico = new CarroServico(repositorio.Object);
+            servico = new CarroServico(unitOfWork.Object);
         }
 
         [Test]
@@ -35,12 +37,11 @@ namespace Veiculos.Testes.Unitarios.Aplicacao
         {
             Assert.DoesNotThrowAsync(async () =>
             {
-                await servico.Salvar(new Carro("Fusca", 1980));
-                await servico.Salvar(new Carro("Uno", 2000));
-                await servico.Salvar(new Carro("Monza", 1995));
+                foreach (var c in carros)
+                    await servico.Salvar(c);
             });
 
-            repositorio.Verify(x => x.Salvar(It.IsAny<Carro>()), Times.AtLeastOnce);
+            unitOfWork.Verify(x => x.CarroRepositorio.Salvar(It.IsAny<Carro>()), Times.AtLeastOnce);
         }
 
         [Test]

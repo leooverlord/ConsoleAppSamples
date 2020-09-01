@@ -58,6 +58,7 @@ namespace Veiculos.Testes.Integracao
             connectionBuilder.InitialCatalog = "master";
 
             var sqlConnection = new SqlConnection(connectionBuilder.ConnectionString);
+            var useMaster = @"use master;";
             var sqlKill = $@"DECLARE @kill varchar(50);
                             SELECT @kill = 'kill ' + CONVERT(varchar(5), session_id) + ';'
                                 FROM sys.dm_exec_sessions
@@ -66,14 +67,18 @@ namespace Veiculos.Testes.Integracao
             var sqlDrop = $"DROP DATABASE {dataBaseName}";
 
             var command = sqlConnection.CreateCommand();
-            command.CommandText = sqlKill;
 
             sqlConnection.Open();
+
+            command.CommandText = useMaster;
+            command.ExecuteNonQuery();
+
+            command.CommandText = sqlKill;
             command.ExecuteNonQuery();
 
             command.CommandText = sqlDrop;
-
             command.ExecuteNonQuery();
+
             sqlConnection.Close();
             sqlConnection.Dispose();
         }
