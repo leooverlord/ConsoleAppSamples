@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using Veiculos.Dominio.Interfaces.Repositorios;
 using Veiculos.Infra.Data.Repositorios;
 using Veiculos.Infra.Interfaces;
 using Veiculos.Infra.Interfaces.Repositorios;
@@ -17,6 +18,14 @@ namespace Veiculos.Infra.UnitOfWorkConfig
         }
 
         public ICarroRepositorio CarroRepositorio => new CarroRepositorio(_dbConnection, _dbTransaction);
+
+        public IMotoRepositorio MotoRepositorio => new MotoRepositorio(_dbConnection, _dbTransaction);
+
+        public IAviaoRepositorio AviaoRepositorio => new AviaoRepositorio(_dbConnection, _dbTransaction);
+
+        public INavioRepositorio NavioRepositorio => new NavioRepositorio(_dbConnection, _dbTransaction);
+
+        public IHelicopteroRepositorio HelicopteroRepositorio => new HelicopteroRepositorio(_dbConnection, _dbTransaction);
 
         public IDisposable BeginTransaction()
         {

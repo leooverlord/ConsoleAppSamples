@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Veiculos.Dominio.Entidades;
+﻿using Veiculos.Dominio.Entidades;
+using Veiculos.Dominio.Interfaces.Repositorios;
 
 namespace Veiculos.Infra.Interfaces.Repositorios
 {
-    public interface ICarroRepositorio
+    public interface ICarroRepositorio : IVeiculosRepositorio<Carro>
     {
-        Task<IEnumerable<Carro>> ObterTodos();
-        Task Salvar(Carro carro);
+
     }
 }
