@@ -2,10 +2,11 @@
 using System.Data;
 using System.Threading.Tasks;
 using Veiculos.Dominio.Entidades;
+using Veiculos.Dominio.Interfaces.Querys.Persistencia;
 
 namespace Veiculos.Infra.Data.Querys.Peristencia
 {
-    public class CarroPersistencia
+    public class CarroPersistencia : ICarroPersistencia
     {
         private readonly IDbConnection _connection;
         private readonly IDbTransaction _transaction;

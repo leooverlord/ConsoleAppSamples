@@ -21,7 +21,7 @@ namespace Veiculos.Infra.Data.Repositorios
             _connection = connection;
             _transaction = transaction;
 
-            _consulta = new CarroConsulta(_connection, _transaction);
+            _consulta = new CarroConsulta(_connection);
             _persistencia = new CarroPersistencia(_connection, _transaction);
         }
 

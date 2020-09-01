@@ -16,13 +16,7 @@ namespace Veiculos.Aplicacao.Servicos
 
         public async Task<IEnumerable<Carro>> ObterTodos()
         {
-            IEnumerable<Carro> carros;
-            using (_unitOfWork.BeginTransaction())
-            {
-                carros = await _unitOfWork.CarroRepositorio.ObterTodos();
-                _unitOfWork.Commit();
-            }
-            return carros;
+            return await _unitOfWork.CarroRepositorio.ObterTodos();
         }
 
         public async Task Salvar(Carro carro)
